@@ -1,0 +1,1 @@
+(()=>{"use strict";document.body.appendChild(function(){const e=document.createElement("div");return e.innerHTML="test",e}()),document.body.appendChild(function(){const e=document.createElement("div");for(let n=0;n<100;n++){const t=document.createElement("div");t.innerHTML=n,e.appendChild(t)}return e.classList.add("grid-container"),e}())})();

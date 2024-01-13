@@ -1,0 +1,20 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 0fr);
+    grid-template-rows: auto;
+}
+
+.grid-node {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+}
+
+.grid-node:hover {
+    cursor: pointer;
+    background-color: grey;
+    transition: .2s ease;
+}
