@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(49, 47, 47);
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(10, 0fr);
@@ -11,6 +15,7 @@
     border: 1px solid black;
     height: 50px;
     width: 50px;
+    background-color: white;
 }
 
 .grid-node:hover {
