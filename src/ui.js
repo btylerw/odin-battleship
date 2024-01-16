@@ -1,6 +1,10 @@
 function loadUI() {
     const container = document.createElement('div');
-    container.innerHTML = 'test';
+    container.classList.add('container')
+    const title = document.createElement('div');
+    title.innerHTML = 'BATTLESHIP';
+    title.classList.add('title');
+    container.appendChild(title);
     return container;
 }
 

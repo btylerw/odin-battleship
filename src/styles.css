@@ -1,7 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
 body {
     background-color: rgb(49, 47, 47);
 }
 
+* {
+    font-family: 'Black Ops One', system-ui;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 200px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.title {
+    position: absolute;
+    top: 50px;
+    font-size: 72px;
+    color: white;
+
+}
 .grid-container {
     display: grid;
     grid-template-columns: repeat(10, 0fr);
@@ -22,4 +44,16 @@ body {
     cursor: pointer;
     background-color: grey;
     transition: .2s ease;
+}
+
+.hit-marker {
+    background: url('./imgs/hit_marker.svg');
+    height: 30px;
+    width: auto;
+}
+
+.miss-marker {
+    background: url('./imgs/miss_marker.svg');
+    height: 30px;
+    width: auto;
 }

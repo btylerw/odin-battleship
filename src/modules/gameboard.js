@@ -1,4 +1,7 @@
-function Gameboard() {
+import grid from "./grid";
+
+function Gameboard(player_num) {
+    const player = player_num;
     const board = Array(10).fill(null).map(() => Array(10).fill(null));
     let ship_count = 5;
     // Stores ship at each node depending on how long it is
@@ -36,8 +39,11 @@ function Gameboard() {
         return board[x][y];
     }
 
+    const getPlayer = () => player;
+    const getBoard = (x, y) => board[x][y];
+
     const allSunk = () => { return ship_count === 0; }
-    return { placeShip, receiveAttack, allSunk, checkGrid, getGrid };
+    return { placeShip, receiveAttack, allSunk, checkGrid, getGrid, getPlayer, getBoard };
 }
 
 export default Gameboard;

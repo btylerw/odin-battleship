@@ -3,7 +3,7 @@ const ship = require('../src/modules/ship');
 
 // Tests that receiveAttack will increase ship's hitcount
 test('testing receiveAttack', () => {
-    const test_board = new Gameboard;
+    const test_board = new Gameboard('player1');
     const test_ship = new ship('battleship', 4);
     test_board.placeShip(test_ship, 4, 'vertical', 0, 0);
     test_board.receiveAttack(0, 0);
@@ -12,7 +12,7 @@ test('testing receiveAttack', () => {
 
 // Testing to ensure that sinking ships will reduce our ship count
 test('testing allSunk', () => {
-    const test_board = new Gameboard;
+    const test_board = new Gameboard('player1');
     const test_ship1 = new ship('battleship', 1);
     const test_ship2 = new ship('battleship', 1);
     const test_ship3 = new ship('battleship', 1);
@@ -30,7 +30,7 @@ test('testing allSunk', () => {
 });
 
 test('testing checkGrid', () => {
-    const test_board = new Gameboard;
+    const test_board = new Gameboard('player1');
     const test_ship = new ship('battleship', 1);
     test_board.placeShip(test_ship, 1, 'vertical', 0, 0);
     test_board.receiveAttack(0, 0);

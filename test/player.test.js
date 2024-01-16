@@ -4,7 +4,7 @@ const Ship = require('../src/modules/ship');
 const Player = require('../src/modules/player');
 
 test('Testing player attack function', () => {
-    const test_board = new Gameboard;
+    const test_board = new Gameboard('player1');
     const player1 = new Player('player1', true);
     const test_ship1 = new Ship('battleship', 1);
     const test_ship2 = new Ship('battleship', 1);
@@ -23,14 +23,14 @@ test('Testing player attack function', () => {
 });
 
 test('Checking for miss', () => {
-    const test_board = new Gameboard;
+    const test_board = new Gameboard('player1');
     const player1 = new Player('player1', true);
     player1.shoot(0, 0, test_board);
     expect(test_board.getGrid(0, 0)).toBe('miss');
 })
 
 test('Checking for hit', () => {
-    const test_board = new Gameboard;
+    const test_board = new Gameboard('player1');
     const player1 = new Player('player1', true);
     const test_ship = new Ship('ship', 1);
     test_board.placeShip(test_ship, test_ship.length, 'vertical', 0, 0)
@@ -39,7 +39,7 @@ test('Checking for hit', () => {
 })
 
 test('Testing auto attack function', () => {
-    const board = new Gameboard;
+    const board = new Gameboard('player1');
     const test_ship = new Ship('ship', 1);
     const player1 = new Player('player1', true);
     // Placing a ship on every single node of the grid to ensure the boards ship_count gets reduced with every accurate shot
