@@ -21,15 +21,23 @@ function Gameboard() {
                 ship_count--;
             }
         } else {
-            board[x][y] = 'shot';
+            board[x][y] = 'miss';
         }
     }
     const checkGrid = (x, y) => {
-        return board[x][y] != 'shot';
+        let shot = false;
+        if (board[x][y] != 'shot' && board[x][y] != 'miss') {
+            shot = true;
+        }
+        return shot;
     }
     
+    const getGrid = (x, y) => {
+        return board[x][y];
+    }
+
     const allSunk = () => { return ship_count === 0; }
-    return { placeShip, receiveAttack, allSunk, checkGrid };
+    return { placeShip, receiveAttack, allSunk, checkGrid, getGrid };
 }
 
 export default Gameboard;

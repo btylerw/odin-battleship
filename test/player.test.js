@@ -22,6 +22,22 @@ test('Testing player attack function', () => {
     expect(test_board.allSunk()).toBe(true);
 });
 
+test('Checking for miss', () => {
+    const test_board = new Gameboard;
+    const player1 = new Player('player1', true);
+    player1.shoot(0, 0, test_board);
+    expect(test_board.getGrid(0, 0)).toBe('miss');
+})
+
+test('Checking for hit', () => {
+    const test_board = new Gameboard;
+    const player1 = new Player('player1', true);
+    const test_ship = new Ship('ship', 1);
+    test_board.placeShip(test_ship, test_ship.length, 'vertical', 0, 0)
+    player1.shoot(0, 0, test_board);
+    expect(test_board.getGrid(0, 0)).toBe('shot');
+})
+
 test('Testing auto attack function', () => {
     const board = new Gameboard;
     const test_ship = new Ship('ship', 1);
