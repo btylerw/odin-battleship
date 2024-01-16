@@ -16,15 +16,16 @@ function Gameboard() {
         if (board[x][y] && board[x][y] != 'miss') {
             const ship_type = board[x][y];
             ship_type.hit();
+            board[x][y] = 'shot';
             if (ship_type.isSunk()) {
                 ship_count--;
             }
         } else {
-            board[x][y] = 'miss';
+            board[x][y] = 'shot';
         }
     }
     const checkGrid = (x, y) => {
-        return board[x][y] === null;
+        return board[x][y] != 'shot';
     }
     
     const allSunk = () => { return ship_count === 0; }
