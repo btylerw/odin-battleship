@@ -26,6 +26,7 @@ function Gameboard(player_num) {
         } else {
             board[x][y] = 'miss';
         }
+        grid.loadGrid(board[x][y], x, y, player);
     }
     const checkGrid = (x, y) => {
         let shot = false;

@@ -1,7 +1,9 @@
 import loadUI from "./ui";
 import grid from './modules/grid';
 import Gameboard from "./modules/gameboard";
-import './styles.css'
+const Player = require('./modules/player');
+const ship = require('./modules/ship');
+import './styles.css';
 
 //document.body.appendChild(loadUI());
 const ui = loadUI();
@@ -10,10 +12,10 @@ const grid2 = grid.createGrid('player2');
 ui.appendChild(grid1);
 ui.appendChild(grid2);
 document.body.appendChild(ui);
-// Ensuring module works
-const ship = require('./modules/ship');
 const board = new Gameboard('player1');
+const p2board = new Gameboard('player2');
 const battleship = new ship('battleship', 4);
+const player2 = new Player('player2', false);
 board.placeShip(battleship, battleship.length, 'vertical', 0, 0);
 board.receiveAttack(1, 0);
-grid.loadGrid(board, board.getPlayer());
+player2.autoshoot(p2board);

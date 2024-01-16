@@ -20,24 +20,19 @@ function createGrid(player) {
     return grid_container;
 }
 
-function loadGrid(board, player) {
-    for (let i = 0; i < 10; i++) {
-        for (let j = 0; j < 10; j++) {
-            const node = document.getElementById(player+'.'+i+'-'+j);
-            const status = board.getBoard(i, j);
-            if (status === 'shot') {
-                const img = new Image();
-                img.src = hit_marker;
-                img.classList.add('hit-marker');
-                node.appendChild(img);
-            } else if (status === 'miss') {
-                const img = new Image();
-                img.src= miss_marker;
-                img.classList.add('miss-marker');
-                node.appendChild(img);
-            }
-        }
-    } 
+function loadGrid(board, x, y, player) {
+    const node = document.getElementById(player+'.'+x+'-'+y);
+    if (board === 'shot') {
+        const img = new Image();
+        img.src = hit_marker;
+        img.classList.add('hit-marker');
+        node.appendChild(img);
+    } else if (board === 'miss') {
+        const img = new Image();
+        img.src= miss_marker;
+        img.classList.add('miss-marker');
+        node.appendChild(img);
+    }
 }
 
 export default { createGrid, loadGrid };
