@@ -8,11 +8,6 @@ function createGrid(player) {
             const node = document.createElement('div');
             node.classList.add('grid-node');
             node.setAttribute('id', player + '.' + i+'-'+j);
-            node.addEventListener('click', function(e) {
-                const arr = node.id.split('.');
-                const grid = arr[1].split('-');
-                console.log(grid);
-            })
             grid_container.appendChild(node);
         }
     }
