@@ -1,10 +1,12 @@
-function createGrid() {
+function createGrid(player) {
     const grid_container = document.createElement('div');
-    for (let i = 0; i < 100; i++) {
-        const node = document.createElement('div');
-        node.innerHTML = i;
-        node.classList.add('grid-node');
-        grid_container.appendChild(node);
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+            const node = document.createElement('div');
+            node.classList.add('grid-node');
+            node.setAttribute('id', player + '.' + i+'-'+j);
+            grid_container.appendChild(node);
+        }
     }
     grid_container.classList.add('grid-container');
     return grid_container;

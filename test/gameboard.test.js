@@ -27,4 +27,12 @@ test('testing allSunk', () => {
         test_board.receiveAttack(i, 0);
     }
     expect(test_board.allSunk()).toBe(true);
+});
+
+test('testing checkGrid', () => {
+    const test_board = new Gameboard;
+    const test_ship = new ship('battleship', 1);
+    test_board.placeShip(test_ship, 1, 'vertical', 0, 0);
+    //expect(test_board.checkGrid(0, 0)).toBe(false);
+    expect(test_board.checkGrid(1, 1)).toBe(true);
 })

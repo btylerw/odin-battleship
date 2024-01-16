@@ -23,8 +23,12 @@ function Gameboard() {
             board[x][y] = 'miss';
         }
     }
+    const checkGrid = (x, y) => {
+        return board[x][y] === null;
+    }
+    
     const allSunk = () => { return ship_count === 0; }
-    return { placeShip, receiveAttack, allSunk };
+    return { placeShip, receiveAttack, allSunk, checkGrid };
 }
 
 export default Gameboard;
