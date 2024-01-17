@@ -42,9 +42,10 @@ function Gameboard(player_num) {
 
     const getPlayer = () => player;
     const getBoard = (x, y) => board[x][y];
+    const getShips = () => ship_count;
 
     const allSunk = () => { return ship_count === 0; }
-    return { placeShip, receiveAttack, allSunk, checkGrid, getGrid, getPlayer, getBoard };
+    return { placeShip, receiveAttack, allSunk, checkGrid, getGrid, getPlayer, getBoard, getShips };
 }
 
 export default Gameboard;

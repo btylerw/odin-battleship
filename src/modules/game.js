@@ -12,6 +12,11 @@ function Game() {
             player1.shoot(coords[0], coords[1], p2board);
             player1.turn = !player1.turn;
             player2.turn = !player2.turn;
+            console.log(p2board.getShips());
+            const result =  checkForEnd(p1board, p2board);
+            if (result) {
+                console.log(result);
+            }
             setTimeout(cpu_turn, 2000);
         }
     }
@@ -42,6 +47,16 @@ function Game() {
     p2board.placeShip(destroyer, destroyer.length, 'vertical', 0, 2);
     p2board.placeShip(submarine, submarine.length, 'vertical', 0, 3);
     p2board.placeShip(patrol_boat,patrol_boat.length, 'vertical', 0, 4);
+    
+    function checkForEnd(p1board, p2board) {
+        if (p1board.allSunk()) {
+            return "Player 2 Wins!";
+        } else if (p2board.allSunk()) {
+            return "Player 1 Wins!";
+        } else {
+            return null;
+        }
+    }
 }
 
 export default Game;
