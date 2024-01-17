@@ -21,11 +21,13 @@ function loadGrid(board, x, y, player) {
         const img = new Image();
         img.src = hit_marker;
         img.classList.add('hit-marker');
+        node.innerHTML = '';
         node.appendChild(img);
     } else if (board === 'miss') {
         const img = new Image();
         img.src= miss_marker;
         img.classList.add('miss-marker');
+        node.innerHTML = '';
         node.appendChild(img);
     }
 }

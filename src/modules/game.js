@@ -6,16 +6,42 @@ function Game() {
     // Creating listener here so we can parse the data of the node clicked
     const onClick = (e) => {
         console.log(e.srcElement.id);
+        const data = e.srcElement.id.split('.');
+        if (data[0] === 'player2' && player1.turn) {
+            const coords = data[1].split('-');
+            player1.shoot(coords[0], coords[1], p2board);
+            player1.turn = !player1.turn;
+            player2.turn = !player2.turn;
+            setTimeout(cpu_turn, 2000);
+        }
+    }
+
+    function cpu_turn() {
+        player2.autoshoot(p1board);
+        player1.turn = !player1.turn;
+        player2.turn = !player2.turn;
     }
     window.addEventListener('click', onClick);
     // Creating our game objects
     const p1board = new Gameboard('player1');
     const p2board = new Gameboard('player2');
     const battleship = new ship('battleship', 4);
+    const carrier = new ship('carrier', 5);
+    const destroyer = new ship('destroyer', 3);
+    const submarine = new ship('submarine', 3);
+    const patrol_boat = new ship('patrolboat', 2);
+    const player1 = new Player('player1', true);
     const player2 = new Player('player2', false);
     p1board.placeShip(battleship, battleship.length, 'vertical', 0, 0);
-    p1board.receiveAttack(1, 0);
-    player2.autoshoot(p2board);
+    p1board.placeShip(carrier, carrier.length, 'vertical', 0, 1);
+    p1board.placeShip(destroyer, destroyer.length, 'vertical', 0, 2);
+    p1board.placeShip(submarine, submarine.length, 'vertical', 0, 3);
+    p1board.placeShip(patrol_boat, patrol_boat.length, 'vertical', 0, 4);
+    p2board.placeShip(battleship, battleship.length, 'vertical', 0, 0);
+    p2board.placeShip(carrier, carrier.length, 'vertical', 0, 1);
+    p2board.placeShip(destroyer, destroyer.length, 'vertical', 0, 2);
+    p2board.placeShip(submarine, submarine.length, 'vertical', 0, 3);
+    p2board.placeShip(patrol_boat,patrol_boat.length, 'vertical', 0, 4);
 }
 
 export default Game;

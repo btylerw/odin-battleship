@@ -7,10 +7,12 @@ function Player(name, turn) {
     this.autoshoot = function(board) {
         const x = Math.floor(Math.random() * 10);
         const y = Math.floor(Math.random() * 10);
-        while (!board.checkGrid(x, y)) {
+        if (board.checkGrid(x, y)) {
             //pass
+            board.receiveAttack(x, y);
+        } else {
+            this.autoshoot(board);
         }
-        board.receiveAttack(x, y);
     }
 };
 

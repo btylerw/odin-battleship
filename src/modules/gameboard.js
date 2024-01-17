@@ -8,9 +8,9 @@ function Gameboard(player_num) {
     const placeShip = (ship_type, length, direction, x, y) => {
         for (let i = 0; i < length; i++) {
             if (direction === 'vertical') {
-                board[x][y+i] = ship_type;
-            } else {
                 board[x+i][y] = ship_type;
+            } else {
+                board[x][y+i] = ship_type;
             }
         }
     }
