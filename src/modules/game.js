@@ -1,6 +1,7 @@
 import Gameboard from "../modules/gameboard";
 const Player = require('../modules/player');
 const ship = require('../modules/ship');
+import grid from "./grid";
 
 function Game() {
     // Creating listener here so we can parse the data of the node clicked
@@ -17,7 +18,7 @@ function Game() {
             if (result) {
                 console.log(result);
             }
-            setTimeout(cpu_turn, 2000);
+            setTimeout(cpu_turn, 1000);
         }
     }
 
@@ -56,6 +57,21 @@ function Game() {
         } else {
             return null;
         }
+    }
+
+    // Currently doesn't work. Need to figure out why
+    function resetBoard() {
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                p1board.setBoard(i, j);
+                const node1 = document.getElementById(player1+'.'+i+'-'+j);
+                p2board.setBoard(i, j);
+                const node2 = document.getElementById(player2+'.'+i+'-'+j);
+                node1.innerHTML = '';
+                node2.innerHTML = '';
+            }
+        }
+        // Need to reload grid here to reset images
     }
 }
 

@@ -57,3 +57,9 @@ body {
     height: 30px;
     width: auto;
 }
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
