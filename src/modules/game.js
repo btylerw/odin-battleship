@@ -50,12 +50,12 @@ function Game() {
     p2board.placeShip(patrol_boat,patrol_boat.length, 'vertical', 0, 4);
     
     function checkForEnd(p1board, p2board) {
+        const winner = document.getElementById('winner-box');
         if (p1board.allSunk()) {
-            return "Player 2 Wins!";
+            winner.innerHTML = "Player 2 Wins!";
         } else if (p2board.allSunk()) {
-            return "Player 1 Wins!";
-        } else {
-            return null;
+            winner.innerHTML = "Player 1 Wins!";
+            winner.style.display = 'flex';
         }
     }
 
