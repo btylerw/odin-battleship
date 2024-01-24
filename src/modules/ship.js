@@ -13,6 +13,6 @@ function Ship(type, length) {
         }
         return this.sunk;
     }
-}
+};
 
 module.exports = Ship;

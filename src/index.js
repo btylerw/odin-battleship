@@ -4,7 +4,7 @@ import Game from "./modules/game";
 import './styles.css';
 
 
-//document.body.appendChild(loadUI());
+// Setting up our game elements
 const ui = loadUI();
 const grid1 = grid.createGrid('player1');
 const grid2 = grid.createGrid('player2');
@@ -18,4 +18,5 @@ button.innerHTML = 'Reset';
 document.body.appendChild(ui);
 btn_container.appendChild(button);
 document.body.appendChild(btn_container);
+// Play the game
 Game();

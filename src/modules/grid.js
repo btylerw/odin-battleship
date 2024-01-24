@@ -1,6 +1,7 @@
 import hit_marker from '../imgs/hit_marker.svg';
 import miss_marker from '../imgs/miss_marker.svg'
 
+// Creating the DOM elements for our grid
 function createGrid(player) {
     const grid_container = document.createElement('div');
     for (let i = 0; i < 10; i++) {
@@ -15,6 +16,7 @@ function createGrid(player) {
     return grid_container;
 }
 
+// loadGrid() is used to display current grid situation
 function loadGrid(board, x, y, player) {
     const node = document.getElementById(player+'.'+x+'-'+y);
     if (board === 'shot') {
@@ -29,6 +31,8 @@ function loadGrid(board, x, y, player) {
         img.classList.add('miss-marker');
         node.innerHTML = '';
         node.appendChild(img);
+    } else {
+        node.innerHTML = '';
     }
 }
 
