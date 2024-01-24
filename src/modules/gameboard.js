@@ -40,13 +40,22 @@ function Gameboard(player_num) {
         return board[x][y];
     }
 
+    const resetBoard = (player) => {
+        for (let x = 0; x < 10; x++) {
+            for (let y = 0; y < 10; y++) {
+                board[x][y] = null;
+                grid.loadGrid(board[x][y], x, y, player)
+            }
+        }
+    }
+
     const getPlayer = () => player;
     const getBoard = (x, y) => board[x][y];
     const setBoard = (x, y) => board[x][y] = null;
     const getShips = () => ship_count;
 
     const allSunk = () => { return ship_count === 0; }
-    return { placeShip, receiveAttack, allSunk, checkGrid, getGrid, getPlayer, getBoard, getShips, setBoard };
+    return { placeShip, receiveAttack, allSunk, checkGrid, getGrid, getPlayer, getBoard, getShips, setBoard, resetBoard };
 }
 
 export default Gameboard;

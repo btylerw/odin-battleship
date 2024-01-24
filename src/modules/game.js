@@ -59,20 +59,14 @@ function Game() {
         }
     }
 
-    // Currently doesn't work. Need to figure out why
-    function resetBoard() {
-        for (let i = 0; i < 10; i++) {
-            for (let j = 0; j < 10; j++) {
-                p1board.setBoard(i, j);
-                const node1 = document.getElementById(player1+'.'+i+'-'+j);
-                p2board.setBoard(i, j);
-                const node2 = document.getElementById(player2+'.'+i+'-'+j);
-                node1.innerHTML = '';
-                node2.innerHTML = '';
-            }
-        }
-        // Need to reload grid here to reset images
+    function clearBoards() {
+        p1board.resetBoard('player1');
+        p2board.resetBoard('player2');
+
     }
+
+    const button = document.getElementById('reset');
+    button.addEventListener('click', clearBoards);
 }
 
 export default Game;
