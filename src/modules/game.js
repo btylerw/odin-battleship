@@ -14,45 +14,49 @@ function Game() {
             player1.turn = !player1.turn;
             player2.turn = !player2.turn;
             console.log(p2board.getShips());
-            const result =  checkForEnd(p1board, p2board);
-            if (result) {
-                console.log(result);
-            }
+            checkForEnd(p1board, p2board);
             setTimeout(cpu_turn, 1000);
         }
     }
-
+    
     function cpu_turn() {
         player2.autoshoot(p1board);
         player1.turn = !player1.turn;
         player2.turn = !player2.turn;
+        checkForEnd(p1board, p2board);
     }
     window.addEventListener('click', onClick);
     // Creating our game objects
     const p1board = new Gameboard('player1');
     const p2board = new Gameboard('player2');
-    const battleship = new ship('battleship', 4);
-    const carrier = new ship('carrier', 5);
-    const destroyer = new ship('destroyer', 3);
-    const submarine = new ship('submarine', 3);
-    const patrol_boat = new ship('patrolboat', 2);
+    const battleship1 = new ship('battleship', 4);
+    const carrier1 = new ship('carrier', 5);
+    const destroyer1 = new ship('destroyer', 3);
+    const submarine1 = new ship('submarine', 3);
+    const patrol_boat1 = new ship('patrolboat', 2);
+    const battleship2 = new ship('battleship', 4);
+    const carrier2 = new ship('carrier', 5);
+    const destroyer2 = new ship('destroyer', 3);
+    const submarine2 = new ship('submarine', 3);
+    const patrol_boat2 = new ship('patrolboat', 2);
     const player1 = new Player('player1', true);
     const player2 = new Player('player2', false);
-    p1board.placeShip(battleship, battleship.length, 'vertical', 0, 0);
-    p1board.placeShip(carrier, carrier.length, 'vertical', 0, 1);
-    p1board.placeShip(destroyer, destroyer.length, 'vertical', 0, 2);
-    p1board.placeShip(submarine, submarine.length, 'vertical', 0, 3);
-    p1board.placeShip(patrol_boat, patrol_boat.length, 'vertical', 0, 4);
-    p2board.placeShip(battleship, battleship.length, 'vertical', 0, 0);
-    p2board.placeShip(carrier, carrier.length, 'vertical', 0, 1);
-    p2board.placeShip(destroyer, destroyer.length, 'vertical', 0, 2);
-    p2board.placeShip(submarine, submarine.length, 'vertical', 0, 3);
-    p2board.placeShip(patrol_boat,patrol_boat.length, 'vertical', 0, 4);
+    p1board.placeShip(battleship1, battleship1.length, 'vertical', 0, 0);
+    p1board.placeShip(carrier1, carrier1.length, 'vertical', 0, 1);
+    p1board.placeShip(destroyer1, destroyer1.length, 'vertical', 0, 2);
+    p1board.placeShip(submarine1, submarine1.length, 'vertical', 0, 3);
+    p1board.placeShip(patrol_boat1, patrol_boat1.length, 'vertical', 0, 4);
+    p2board.placeShip(battleship2, battleship2.length, 'vertical', 0, 0);
+    p2board.placeShip(carrier2, carrier2.length, 'vertical', 0, 1);
+    p2board.placeShip(destroyer2, destroyer2.length, 'vertical', 0, 2);
+    p2board.placeShip(submarine2, submarine2.length, 'vertical', 0, 3);
+    p2board.placeShip(patrol_boat2, patrol_boat2.length, 'vertical', 0, 4);
     
     function checkForEnd(p1board, p2board) {
         const winner = document.getElementById('winner-box');
         if (p1board.allSunk()) {
             winner.innerHTML = "Player 2 Wins!";
+            winner.style.display = 'flex';
         } else if (p2board.allSunk()) {
             winner.innerHTML = "Player 1 Wins!";
             winner.style.display = 'flex';
