@@ -72,3 +72,21 @@ body {
     text-shadow: 0px 0px 10px black;
     display: none;
 }
+
+.place-box {
+    box-shadow: 2px 2px 10px 5px black;
+    display: grid;
+    grid-template-columns: repeat(10, 0fr);
+    grid-template-rows: auto;
+    font-size: 72px;
+}
+
+.place-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20vh;
+    flex-direction: column;
+    gap: 20px;
+}
