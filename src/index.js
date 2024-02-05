@@ -1,7 +1,8 @@
 import loadUI from "./ui";
 import grid from './modules/grid';
 import Game from "./modules/game";
-import loadPlaceBox from "./place";
+import loadPlaceBox from "./place_box";
+import put_ship from "./modules/put_ship";
 import './styles.css';
 
 
@@ -21,11 +22,6 @@ ui.appendChild(place_box);
 document.body.appendChild(ui);
 btn_container.appendChild(button);
 document.body.appendChild(btn_container);
-const confirm = document.getElementById('confirm-btn');
-function changeDisplay() {
-    const box = document.getElementById('place-box');
-    box.style.display = 'none';
-}
-confirm.addEventListener('click', changeDisplay);
+put_ship();
 // Play the game
 Game();

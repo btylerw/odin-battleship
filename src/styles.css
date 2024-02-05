@@ -90,3 +90,31 @@ body {
     flex-direction: column;
     gap: 20px;
 }
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.placement-nohighlight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    color: white;
+    background-color: white;
+}
+.placement-highlight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background-color: rgb(70, 201, 208);
+}
